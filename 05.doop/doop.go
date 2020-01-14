@@ -12,7 +12,6 @@ func main() {
 	for range os.Args {
 		lens++
 	}
-	// 1. проверка длины os.Args
 	if lens != 4 {
 		return
 	}
@@ -20,30 +19,30 @@ func main() {
 	var answer string
 	str1 := os.Args[1]
 	str2 := os.Args[3]
-	// 2. проверка на цифровые аргументы
+	
 	if isNumeric(str1) == false || isNumeric(str2) == false {
 		z01.PrintRune('0')
 		z01.PrintRune('\n')
 		return
 	}
-	// 3. перевод аргументов с строки в числа
+	
 	a = student.Atoi(str1)
 	b = student.Atoi(str2)
 	operator := os.Args[2]
-	// 4. проверка на значения переполнения, которые меняются свои знаки и значения при переводе со строки в число
+	
 	if str1[0] != '-' && a < 0 || str1[0] == '-' && a > 0 || str2[0] != '-' && b < 0 || str2[0] == '-' && b > 0 {
 		z01.PrintRune('0')
 		z01.PrintRune('\n')
 		return
 	}
 	if operator == "+" {
-		// проверка результата на значения переполнения
+		
 		if a > 0 && b > 0 && a+b < 0 || a < 0 && b < 0 && a+b > 0 {
 			answer = Itoa1(0)
 		}
 		answer = Itoa1(a + b)
 	} else if operator == "-" {
-		// проверка результата на значения переполнения
+		
 		if a < 0 && b > 0 && a-b > 0 || a > 0 && b < 0 && a-b < 0 {
 			answer = Itoa1(0)
 		}
@@ -53,7 +52,7 @@ func main() {
 		answer = mult(a, b)
 
 	} else if operator == "/" {
-		//проверка результата на значения переполнения
+		
 		if a < 0 && b < 0 && a/b < 0 {
 			answer = Itoa1(0)
 		}
@@ -70,7 +69,7 @@ func main() {
 		}
 
 	} else {
-		// во всех остальных случаях оператора
+		
 		z01.PrintRune('0')
 		z01.PrintRune('\n')
 		return
@@ -112,7 +111,7 @@ func Itoa1(n int64) string {
 
 func mult(a, b int64) string {
 	res := a * b
-	// проверка результата на значения переполнения
+	
 	if res/a != b {
 		return Itoa1(0)
 	}
