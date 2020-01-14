@@ -11,8 +11,12 @@ func main() {
 	if len(args) > 1 {
 
 		BigString := ""
-		for _, val := range args[1:] {
-			BigString += val + " "
+		for i, val := range args[1:] {
+			if i+1 == len(args[1:]) {
+				BigString += val + ""
+			} else {
+				BigString += val + " "
+			}
 		}
 		VowelString := ""
 		for _, value := range BigString {
