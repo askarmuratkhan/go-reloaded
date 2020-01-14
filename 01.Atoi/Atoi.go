@@ -1,9 +1,9 @@
 package student
 
-func Atoi(s string) int64 {
-	var result int64
+func Atoi(s string) int {
+	var result int
 	var letter rune
-	var sign int64 = 1
+	var sign int = 1
 
 	for index := range s {
 		letter = rune(s[index])
@@ -14,7 +14,7 @@ func Atoi(s string) int64 {
 		} else if letter < '0' || letter > '9' {
 			return 0
 		} else {
-			var n int64 = 0
+			var n int = 0
 			for i := '0'; i < letter; i++ {
 				n++
 			}
